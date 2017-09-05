@@ -84,7 +84,7 @@ require_once('NNegocio.php');
                     echo NNegocio::exibirTextoNaColuna($dt_aplicacao_prova);
                     echo NNegocio::exibirTextoNaColuna($dt_geracao_prova );
                     echo NNegocio::exibirTextoNaColuna($resultado->ds_prova);
-                    echo "<td><a href='gerarPdf.php?id_prova=" . $resultado->id_prova ."'> Imprimir</a></td>";
+                    echo "<td><a href='consultaProva.php?id_prova=" . $resultado->id_prova ."'> Imprimir</a></td>";
                     echo "</tr>";
                 }
             }else{
