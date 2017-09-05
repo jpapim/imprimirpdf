@@ -50,7 +50,7 @@ $arQuestoesProva = $dadosProva->buscarQuestoesProva($_GET['id_prova']);
                         $arQuestoesProva = $dadosProva->buscarQuestoesProva($_GET['id_prova']);
                         echo "<h4 class='questao'> QUESTÃO". " ".$i++. "</h4>";
 //                        print_r($arQuestoesProva);
-                        echo "<p>" . str_replace("/assets/kcfinder/upload/images/","../../../../../public/assets/kcfinder/upload/images/",$arQuestoesProva['tx_enunciado']) . "</p>";
+                        echo "<p>" . $arQuestoesProva['tx_enunciado'] . "</p>";
 
 
 //                        $arAlternativaQuestao = $alternativaquestao->fetchAllById(['id_questao' => $item['id_questao']]);
