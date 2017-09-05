@@ -60,17 +60,28 @@ class PBancoDeDados {
     function buscarQuestoesProva($id_prova) {
 
         $sql = "
-                SELECT 
-                      questoes_prova.id_questao_prova AS id_questao_prova, 
-                      questoes_prova.id_questao AS id_questao, 
-                      questoes_prova.id_prova AS id_prova
-                FROM 
-                      questoes_prova 
-                WHERE                     
-                      questoes_prova.id_prova = " . $id_prova . "
-                ORDER BY 
-                      questoes_prova.id_questao ASC
+
+SELECT qp.id_questao_prova, qp.id_questao, qp.id_prova, q.tx_enunciado
+FROM questoes_prova as qp
+JOIN questao AS q ON qp.id_questao = q.id_questao
+WHERE                     
+qp.id_prova = " . $id_prova . "
+ORDER BY 
+qp.id_questao ASC
+                
         ";
+
+        //                SELECT
+//                      questoes_prova.id_questao_prova AS id_questao_prova,
+//                      questoes_prova.id_questao AS id_questao,
+//                      questoes_prova.id_prova AS id_prova
+//                FROM
+//                      questoes_prova
+//                WHERE
+//                      questoes_prova.id_prova = " . $id_prova . "
+//                ORDER BY
+//                      questoes_prova.id_questao ASC
+//        ";
 
         #die("<pre>".$sql."</pre>");
 
@@ -78,6 +89,9 @@ class PBancoDeDados {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+
+
 
     function buscarQuestao($id_questao) {
 
